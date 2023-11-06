@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="./js/script.js" async></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="sticky">
+            <h2>Code of the Day</h2>
+            <strong>Le quotidien des développeurs en herbe !</strong><br>
+            Bienvenue sur le portail d'inscription à notre liste d'abonnement. <br>
+            Ici vous pourrez demander à ce que votre journal préféré vous soit livré chaque jour. <br>
+            Dès que notre équipe recevra votre demande, vous serez contacté par courrier électronique.
+        </div>
+    </header>
+    <main>
+            <h1>Formulaire d'inscription</h1>
+            <form action="index.html" method="get">
+                <fieldset>
+                    <legend>Identité</legend>
+                    <ul>
+                        <li><label for="radio-femme">Monsieur</label> <input type="radio" name="user_sexe" id="radio-homme" checked>  <label for="radio-femme">Madame</label> <input type="radio" name="user_sexe" id="radio-femme"></li>
+                        <li><label for="user-name">Nom : </label><input type="text" name="user_name" id="user-name"></li>
+                        <li><label for="user-firstname">Prénom : </label><input type="text" name="user_firstname" id="user-firstname"></li>
+                        <li><label for="user-mail">E-mail : </label><input type="text" name="user_mail" id="user-mail"></li>
+                        
+                    </ul>
+                </fieldset>
+                <fieldset>
+                    <legend>Adresse de facturation</legend>
+                    <ul>
+                        <li><label for="user-street">Rue : </label><input type="text" name="user_street" id="user-street">
+                        <li><select id="selection"></select></li>
+                        <li><label for="user-city">Ville : </label><input type="text" name="user_city" id="user-city"></li>
+                        <li><label for="user-postcode">Code postal : </label><input type="text" name="user_postcode" id="user-postcode"></li>
+                    </ul>
+                </fieldset>
+                <fieldset>
+                    <legend>Adresse de livraison</legend>
+                    <ul>
+                        <li><label for="user-street">Rue : </label><input type="text" name="user_street" id="user-street"></li>
+                        <li><label for="user-city">Ville : </label><input type="text" name="user_city" id="user-city"></li>
+                        <li><label for="user-postcode">Code postal : </label><input type="text" name="user_postcode" id="user-postcode"></li>
+                    </ul>
+                </fieldset>
+                <input type="button" value="Valider" id="valider">
+            </form>
+
+    </main>
+    <footer>
+        <div>Laura MORILLO - @Code of the day - 2023</div>
+    </footer>
+</body>
+</html>
