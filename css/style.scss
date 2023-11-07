@@ -41,6 +41,16 @@ main {
                 align-items: center;
                 li {
                     margin-top: 3%;
+                    #selection {
+                        display: flex;
+                        flex-direction: column;
+                        background-color: #add8e6;
+                        width: fit-content;
+                        #selection-item:hover {
+                            width: 100%;
+                            background-color: #7d9ca6;
+                        }
+                    }
                 }
             }
     }

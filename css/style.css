@@ -41,6 +41,17 @@ main fieldset ul {
 main fieldset ul li {
   margin-top: 3%;
 }
+main fieldset ul li #selection {
+  display: flex;
+  flex-direction: column;
+  background-color: #add8e6;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+main fieldset ul li #selection #selection-item:hover {
+  width: 100%;
+  background-color: #7d9ca6;
+}
 main #valider {
   width: 100px;
   height: 50px;
