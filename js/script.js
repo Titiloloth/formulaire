@@ -1,13 +1,18 @@
-//Initialisation
+//INITIALISATION
 
-let liste = document.getElementById("selection")
-let champSelection = document.getElementById("user-street")
-liste.style.display = "none"
+let liste1 = document.getElementById("selection1")
+let liste2 = document.getElementById("selection2")
+let champSelection1 = document.getElementById("user-street1")
+let champSelection2 = document.getElementById("user-street2")
+liste1.style.display = "none"
+liste2.style.display = "none"
 
-//Début de l'algorithme 
+//ALGORITHME
 
-champSelection.addEventListener("input", function (event){
-    liste.innerHTML = "";
+//Facturation
+
+champSelection1.addEventListener("input", function (event){
+    liste1.innerHTML = "";
     let saisie = event.target.value.split(" ").join("+")
 
     let listeAdresses;
@@ -19,42 +24,93 @@ champSelection.addEventListener("input", function (event){
     const res = await fetch(urlApi + saisie + "&limit=5");
     listeAdresses = await res.json();
     
-    liste.style.display = "flex"
+    liste1.style.display = "flex"
 
     let features = listeAdresses.features.slice(0,5)
     
-
     features.forEach(element => {
             let adresse = element.properties.label
             let option = document.createElement("div")
-            option.setAttribute('id', 'selection-item')
-            liste.appendChild(option)
+            option.setAttribute('id', 'selection-item1')
+            liste1.appendChild(option)
             option.innerHTML = adresse
             option.addEventListener("click", function() {
-                optionAutoCompletion(element.properties.name, element.properties.city, element.properties.postcode)
+                optionAutoCompletionFac(element.properties.name, element.properties.city, element.properties.postcode)
             })
         });
 
     };
 
-    if (champSelection.value == '') {
-        liste.lenght = 0
-        liste.style.display = "none"
+    if (champSelection1.value == '') {
+        liste1.lenght = 0
+        liste1.style.display = "none"
     }    
 
 });
 
+champSelection2.addEventListener("input", function (event){
+    liste2.innerHTML = "";
+    let saisie = event.target.value.split(" ").join("+")
 
-function optionAutoCompletion(rue, ville, postCode) {
-    let inputRue = document.getElementById("user-street")
-    let inputVille = document.getElementById("user-city")
-    let inputPostcode = document.getElementById("user-postcode")
+    let listeAdresses;
+    let urlApi = "https://api-adresse.data.gouv.fr/search/?q=";
+     getAdresses();
+
+
+    async function getAdresses () {
+    const res = await fetch(urlApi + saisie + "&limit=5");
+    listeAdresses = await res.json();
+    
+    liste2.style.display = "flex"
+
+    let features = listeAdresses.features.slice(0,5)
+    
+    features.forEach(element => {
+            let adresse = element.properties.label
+            let option = document.createElement("div")
+            option.setAttribute('id', 'selection-item2')
+            liste2.appendChild(option)
+            option.innerHTML = adresse
+            option.addEventListener("click", function() {
+                optionAutoCompletionLiv(element.properties.name, element.properties.city, element.properties.postcode)
+            })
+        });
+
+    };
+
+    if (champSelection2.value == '') {
+        liste2.lenght = 0
+        liste2.style.display = "none"
+    }    
+
+});
+
+//Livraison 
+
+// FONCTIONS 
+
+function optionAutoCompletionFac(rue, ville, postCode) {
+    let inputRue = document.getElementById("user-street1")
+    let inputVille = document.getElementById("user-city1")
+    let inputPostcode = document.getElementById("user-postcode1")
 
     inputRue.value = rue
     inputVille.value = ville
     inputPostcode.value = postCode
 
-    liste.style.display = "none"
+    liste1.style.display = "none"
+} 
+
+function optionAutoCompletionLiv(rue, ville, postCode) {
+    let inputRue = document.getElementById("user-street2")
+    let inputVille = document.getElementById("user-city2")
+    let inputPostcode = document.getElementById("user-postcode2")
+
+    inputRue.value = rue
+    inputVille.value = ville
+    inputPostcode.value = postCode
+
+    liste2.style.display = "none"
 } 
 
 

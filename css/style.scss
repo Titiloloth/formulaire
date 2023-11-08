@@ -41,12 +41,22 @@ main {
                 align-items: center;
                 li {
                     margin-top: 3%;
-                    #selection {
+                    #selection1 {
                         display: flex;
                         flex-direction: column;
                         background-color: #add8e6;
                         width: fit-content;
-                        #selection-item:hover {
+                         #selection-item1:hover {
+                            width: 100%;
+                            background-color: #7d9ca6;
+                        }
+                    }
+                    #selection2 {
+                        display: flex;
+                        flex-direction: column;
+                        background-color: #add8e6;
+                        width: fit-content;
+                        #selection-item2:hover {
                             width: 100%;
                             background-color: #7d9ca6;
                         }
