@@ -48,6 +48,8 @@ champSelection1.addEventListener("input", function (event){
 
 });
 
+//Livraison 
+
 champSelection2.addEventListener("input", function (event){
     liste2.innerHTML = "";
     let saisie = event.target.value.split(" ").join("+")
@@ -85,7 +87,6 @@ champSelection2.addEventListener("input", function (event){
 
 });
 
-//Livraison 
 
 // FONCTIONS 
 
